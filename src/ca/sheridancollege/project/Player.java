@@ -5,11 +5,11 @@ import java.util.ArrayList;
 /**
  * A class that models each Player in the Blackjack game.
  *
- * @author [Your Name]
+ * @author devin
  */
 public class Player {
 
-    private final String name; // The unique name for this player
+    private final String name; // The unique name for this player 
     private final ArrayList<Card> cards; // The cards held by the player
 
     public Player(String name) {

@@ -6,7 +6,7 @@ import java.util.Scanner;
 /**
  * The class that models your Blackjack game.
  *
- * @author [Your Name]
+ * @author devin
  */
 public class Game {
 
@@ -92,7 +92,7 @@ public void displayHands(Player currentPlayer) {
 
             // Check if the player busts
             if (getHandValue(player) > 21) {
-                System.out.println("Bust! " + player.getName() + " loses.");
+                 System.out.println("Bust! " + player.getName() + " loses.");
                 break;
             }
 
@@ -199,18 +199,42 @@ public void displayHands(Player currentPlayer) {
         Card card = deck.getCards().remove(0);
         player.getCards().add(card);
     }
+public static void main(String[] args) {
+    System.out.println("Welcome to Blackjack!");
+    System.out.println("Rules:");
+    System.out.println("1. Objective: Beat the dealer's hand without going over 21.");
+    System.out.println("2. Players: At least two players - players and the dealer.");
+    System.out.println("3. Card Values: Number cards have face value, face cards are 10, Aces are 1 or 11.");
+    System.out.println("4. Initial Dealing: Each player gets two cards, one dealer card is face-up.");
+    System.out.println("5. Player's Turn: Choose to hit (receive a card) or stand (keep current hand).");
+    System.out.println();
 
-    // Main method to start the game
-    public static void main(String[] args) {
-        Game blackjackGame = new Game("Blackjack");
-        Player player1 = new Player("Player 1");
-        Player player2 = new Player("Player 2");
-        Player dealer = new Player("Dealer");
-        blackjackGame.getPlayers().add(dealer);
-        blackjackGame.getPlayers().add(player1);
-        blackjackGame.getPlayers().add(player2);
+    Scanner scanner = new Scanner(System.in);
 
-        // Start the game
-        blackjackGame.play();
-    }
+    // Player registration
+    System.out.print("Enter Player 1's name: ");
+    String player1Name = scanner.nextLine();
+    Player player1 = new Player(player1Name);
+
+    System.out.print("Enter Player 2's name: ");
+    String player2Name = scanner.nextLine();
+    Player player2 = new Player(player2Name);
+
+    Player dealer = new Player("Dealer");
+
+    // Betting option
+    System.out.print("Enter the bet amount for each player: ");
+    double betAmount = scanner.nextDouble();
+
+    // Start the game
+    Game blackjackGame = new Game("Blackjack");
+    blackjackGame.getPlayers().add(dealer);
+    blackjackGame.getPlayers().add(player1);
+    blackjackGame.getPlayers().add(player2);
+
+    blackjackGame.play();
+
+    scanner.close();
+}
+
 }

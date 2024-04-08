@@ -4,7 +4,7 @@ package ca.sheridancollege.project;
  * A class to be used as the base Card class for the project.
  * Must be general enough to be instantiated for any Card game.
  *
- * @author [Your Name]
+ * @author devin
  */
 public class Card {
     // Default modifier for child classes
