@@ -24,6 +24,10 @@ public class Game {
         this.scanner = new Scanner(System.in);
     }
 
+    Game() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
     public String getName() {
         return name;
     }
@@ -37,18 +41,20 @@ public class Game {
         this.players.addAll(players);
     }
 
-// Display the hand of Player 1 only
 public void displayHands(Player currentPlayer) {
     System.out.println("Initial hands:");
 
-    // Display Player 1's hand
-    if (currentPlayer == players.get(1)) {
+    // Check if the players list is not empty and if the index is valid
+    if (!players.isEmpty() && currentPlayer == players.get(1)) {
         System.out.println(players.get(1).getName() + "'s hand: " + players.get(1).getCards());
     }
 
     // Display dealer's face-up card
-    System.out.println("Dealer's face-up card: " + players.get(0).getCards().get(1));
+    if (!players.isEmpty() && players.size() > 0) {
+        System.out.println("Dealer's face-up card: " + players.get(0).getCards().get(1));
+    }
 }
+
 
 
 
